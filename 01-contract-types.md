@@ -75,3 +75,14 @@ Most flexible option.
 ---
 
 ## Quick Decision Guide
+Do you need unique one-of-one tokens?
+YES → ERC721
+Do you need multiple copies of items OR a mix of fungible and non-fungible?
+YES → ERC1155
+Do you need a simple transferable token with supply?
+YES → ERC20
+
+---
+
+## Deploy Your Contract
+→ [krionex.com](https://krionex.com)
