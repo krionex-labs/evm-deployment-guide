@@ -1,85 +1,73 @@
-# 05 — Post-Launch Operations: Managing Your Contract After Launch
+# 04 — Verification: Getting Your Contract Verified on Explorers
 
-Deployment is not the finish line.
-Here is everything you need to manage after your contract is live.
-
----
-
-## Available Operations in Krionex
-
-| Operation | What It Does | Who Needs It |
-|-----------|-------------|--------------|
-| Mint | Create new tokens | Projects with mintable supply |
-| Burn | Permanently destroy tokens | Deflationary mechanics |
-| Pause | Freeze all transfers | Emergency stop, security |
-| Unpause | Resume transfers | After resolving an issue |
+An unverified contract looks suspicious.
+Verification is not optional if you want users to trust your token.
 
 ---
 
-## Minting
+## What Verification Means
 
-Minting creates new tokens after the initial deployment.
+Verification publishes your Solidity source code on the block explorer
+so anyone can read exactly what your contract does.
 
-**When to mint:**
-- Staggered token release schedule
-- Reward distributions
-- NFT collection reveals
-- Adding new token IDs (ERC1155)
+**Unverified contract:**
+Users see raw bytecode. Cannot read the logic. Looks shady.
 
-**Important:** Only contracts deployed with the mintable 
-feature enabled can mint after deployment. 
-You cannot add minting to a non-mintable contract after launch.
+**Verified contract:**
+Users see clean readable Solidity code. Trust established.
 
 ---
 
-## Burning
+## Where Contracts Get Verified
 
-Burning permanently removes tokens from circulation.
-The tokens are sent to the zero address and cannot be recovered.
-
-**When to burn:**
-- Deflationary tokenomics (reduce supply over time)
-- Removing unsold tokens after a sale
-- Token migration to a new contract
-- Buyback and burn mechanics
-
----
-
-## Pause and Unpause
-
-Pausing freezes all token transfers across all wallets.
-No one can send or receive while paused.
-
-**When to pause:**
-- Security incident detected
-- Smart contract exploit discovered
-- Emergency maintenance
-- Regulatory compliance requirement
-
-**Important:** Only contracts deployed with the pausable 
-feature enabled can be paused. 
-Plan this before deployment.
+| Network | Explorer | Verification Site |
+|---------|----------|------------------|
+| Ethereum | Etherscan | etherscan.io |
+| Base | Basescan | basescan.org |
+| Polygon | Polygonscan | polygonscan.com |
+| Arbitrum | Arbiscan | arbiscan.io |
+| BNB Chain | BscScan | bscscan.com |
+| Optimism | Optimistic Etherscan | optimistic.etherscan.io |
+| Avalanche | Snowtrace | snowtrace.io |
 
 ---
 
-## Post-Launch Checklist
+## How Krionex Handles Verification
 
-- [ ] Verify contract is showing correctly on explorer
-- [ ] Test a small transfer to confirm it works
-- [ ] Add token to CoinGecko or CoinMarketCap if applicable
-- [ ] Import token contract into your workspace for operations
-- [ ] Set up monitoring for unusual activity
-- [ ] Document your contract address and tx hash securely
-- [ ] Add token to MetaMask and test wallets
+Krionex triggers automatic verification after every deployment.
+You do not need to manually submit source code to the explorer.
+
+After deployment you will see:
+- Verification status in your workspace
+- Direct explorer link to the verified contract
+- Green checkmark on the explorer contract page
 
 ---
 
-## Importing an Existing Contract
+## If Verification Fails
 
-If you deployed a contract outside Krionex you can still 
-import it into your workspace for operations.
+Occasionally verification can fail due to network delays.
+If this happens:
 
-Go to your Krionex workspace → Import Contract → 
-Paste contract address → Select network → Connect
+1. Go to your deployment record in Krionex
+2. Copy your contract address
+3. Go to the relevant explorer
+4. Click Verify and Publish
+5. Select Solidity Single File
+6. Match the compiler version exactly
+7. Paste the source code
+8. Submit
+
+---
+
+## What a Verified Contract Looks Like
+
+On Etherscan a verified contract shows:
+- Green checkmark next to the contract address
+- Full source code under the Contract tab
+- Read Contract and Write Contract functions visible
+- ABI available for download
+
+This is what builds trust with your users, investors, and the community.
 
 → [krionex.com](https://krionex.com)
